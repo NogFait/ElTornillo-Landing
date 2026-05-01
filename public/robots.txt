@@ -1,0 +1,13 @@
+# https://ferreteria-el-tornillo.vercel.app/robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ferreteria-el-tornillo.vercel.app/sitemap.xml
+
+# Disallow admin or private pages (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl-delay (optional, for busy servers)
+# Crawl-delay: 1

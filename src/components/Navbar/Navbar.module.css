@@ -1,0 +1,112 @@
+/* === NAVBAR - Industrial Brutalist Style === */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-black);
+  border-bottom: var(--border-width-lg) solid var(--color-primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--navbar-height);
+}
+
+.brand {
+  font-family: var(--font-family);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.brand:hover {
+  color: var(--color-primary);
+}
+
+.burgerButton {
+  display: none;
+  font-family: var(--font-family);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-white);
+  background: none;
+  border: var(--border-width-md) solid var(--color-white);
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.burgerButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.navList {
+  display: flex;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--border-width-md) solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 902px) {
+  .burgerButton {
+    display: flex;
+  }
+
+  .navList {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: var(--color-black);
+    border-left: var(--border-width-lg) solid var(--color-primary);
+    flex-direction: column;
+    padding: 80px var(--space-md) var(--space-md);
+    gap: var(--space-sm);
+    transition: right 0.3s ease;
+    z-index: 99;
+  }
+
+  .navListOpen {
+    right: 0;
+  }
+
+  .navItem {
+    font-size: 18px;
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: var(--border-width-sm) solid var(--color-outline);
+  }
+}

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* === NAVBAR HEIGHT === */
+  --navbar-height: 80px;
+  
+  /* === COLORES DEL SISTEMA DE DISEÑO === */
+  --color-primary: #9e0000;
+  --color-primary-hover: #cc0000;
+  --color-primary-dark: #930000;
+  
+  --color-black: #1a1c1c;
+  --color-white: #ffffff;
+  
+  --color-surface: #f9f9f9;
+  --color-surface-dim: #dadada;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-low: #f3f3f3;
+  
+  --color-outline: #5e3f3a;
+  --color-outline-variant: #e8bdb6;
+  
+  --color-on-surface: #1a1c1c;
+  --color-on-primary: #ffffff;
+  
+  /* === TIPOGRAFÍA === */
+  --font-family: 'Work Sans', sans-serif;
+  
+  /* === ESPACIADO (Sistema de 8px) === */
+  --space-unit: 8px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  
+  /* === BORDES === */
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+  --border-width-lg: 3px;
+  --border-radius: 0px;
+  
+  /* === SOMBRAS DURAS (Brutalist) === */
+  --shadow-hard: 4px 4px 0px #000000;
+}
+
+/* === RESET BÁSICO === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: var(--font-family);
+}

@@ -1,0 +1,111 @@
+/* === MATERIAL CARD - Industrial Brutalist Style === */
+
+.card {
+  border: var(--border-width-sm) solid var(--color-surface-dim);
+  background-color: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  grid-column: span 3;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    grid-column: span 1;
+  }
+}
+
+.card:hover {
+  border-color: var(--color-black);
+  box-shadow: var(--shadow-hard);
+}
+
+.imageArea {
+  background-color: var(--color-surface-dim);
+  border-bottom: var(--border-width-sm) solid var(--color-surface-dim);
+  min-height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imagePlaceholder {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-outline);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.content {
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.description {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-on-surface);
+  line-height: 16px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  flex: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-xs);
+  border-top: var(--border-width-sm) solid var(--color-surface-dim);
+}
+
+.price {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+.category {
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  padding: 2px var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
