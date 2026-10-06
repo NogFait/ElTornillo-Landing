@@ -1,27 +1,14 @@
-/* === RESEÑAS LIST - Industrial Brutalist Grid === */
+/* === LISTA DE RESEÑAS === */
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-md);
-  padding: var(--space-md) 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
 }
 
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
   }
 }

@@ -1,67 +1,34 @@
-/* === RESEÑA CARD - Industrial Brutalist Style === */
+/* === RESEÑA === (contenido, no control: sin hover que sugiera que se puede tocar) */
 
 .card {
-  border: var(--border-width-sm) solid var(--color-surface-dim);
-  background-color: var(--color-surface);
-  padding: var(--space-md);
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-  grid-column: span 4;
-  transition: all 0.2s ease;
-}
-
-@media (max-width: 1024px) {
-  .card {
-    grid-column: span 3;
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    grid-column: span 1;
-  }
-}
-
-.card:hover {
-  border-color: var(--color-black);
-  box-shadow: var(--shadow-hard);
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: var(--space-xs);
-  border-bottom: var(--border-width-sm) solid var(--color-surface-dim);
-}
-
-.name {
-  font-family: var(--font-family);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-black);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0;
-  line-height: 1.2;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--color-white);
+  border: var(--border-width-sm) solid var(--color-line);
+  border-top: var(--border-width-lg) solid var(--color-primary);
 }
 
 .stars {
-  font-family: var(--font-family);
-  font-size: 14px;
+  display: flex;
+  gap: 2px;
   color: var(--color-primary);
-  letter-spacing: 0.1em;
 }
 
 .comment {
-  font-family: var(--font-family);
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--color-on-surface);
-  line-height: 20px;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
   flex: 1;
+  font-size: 1.1875rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--color-on-surface);
+}
+
+.name {
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-on-surface-muted);
 }

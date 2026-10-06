@@ -1,19 +1,26 @@
+import type { Resenas } from '../../types/Resenas'
+import { stagger } from '../../motion/variants'
+import { Reveal } from '../Reveal/Reveal'
+import { Star } from '../Icons/Icons'
 import styles from './ResenaCard.module.css'
-import type{ Resenas } from "../../types/Resenas";
 
 interface Props {
-  resena: Resenas;
+  resena: Resenas
+  index: number
 }
 
-export const ResenaCard = ({ resena }: Props) => {
+export const ResenaCard = ({ resena, index }: Props) => {
   return (
-    <article className={styles.card}>
-      <header className={styles.header}>
-        <h4 className={styles.name}>{resena.nombre}</h4>
-        <span className={styles.stars}>{"★".repeat(resena.estrellas)}</span>
-      </header>
+    <Reveal as="li" className={styles.card} delay={stagger(index)}>
+      <div className={styles.stars} role="img" aria-label={`${resena.estrellas} de 5 estrellas`}>
+        {Array.from({ length: 5 }, (_, i) => (
+          <Star key={i} filled={i < resena.estrellas} width={20} height={20} />
+        ))}
+      </div>
 
-      <p className={styles.comment}>{resena.comentario}</p>
-    </article>
-  );
-};
+      <blockquote className={styles.comment}>{resena.comentario}</blockquote>
+
+      <p className={styles.name}>{resena.nombre}</p>
+    </Reveal>
+  )
+}

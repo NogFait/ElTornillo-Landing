@@ -1,0 +1,92 @@
+/* === BOTÓN — cara sobre sombra dura === */
+
+.button {
+  position: relative;
+  display: inline-flex;
+  isolation: isolate;
+  text-decoration: none;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+/* La sombra no se mueve: es el "suelo" sobre el que se levanta la cara */
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--shadow-color, #000);
+  transform: translate(5px, 5px);
+}
+
+.face {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  min-height: 52px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: var(--border-width-md) solid transparent;
+  transition:
+    transform var(--t-snappy) var(--spring),
+    background-color var(--t-snappy) ease,
+    color var(--t-snappy) ease;
+}
+
+.arrow {
+  flex: none;
+  transition: transform var(--t-snappy) var(--spring);
+}
+
+/* --- variantes --- */
+.primary .face {
+  background: var(--color-primary-hover);
+  color: var(--color-white);
+  border-color: var(--color-primary-hover);
+}
+
+.dark .face {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+  border-bottom-color: var(--color-primary);
+}
+
+.ghost {
+  --shadow-color: transparent;
+}
+
+.ghost .face {
+  background: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+/* --- feedback --- */
+@media (hover: hover) and (pointer: fine) {
+  .button:hover .face {
+    transform: translate(-2px, -2px);
+  }
+
+  .button:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  .ghost:hover .face {
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+}
+
+/* El feedback ocurre al presionar, no al soltar, y es más rápido que el hover */
+.button:active .face {
+  transform: translate(5px, 5px);
+  transition-duration: var(--t-press);
+}
+
+.button:focus-visible {
+  outline-offset: 6px;
+}

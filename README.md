@@ -30,6 +30,22 @@ This project follows the **Industrial Brutalist** design philosophy:
 
 ---
 
+## 🎬 Movimiento
+
+Una sola física para todo el sitio (springs descritos como Apple: *damping ratio* + *response*).
+
+- **JS:** `src/motion/physics.ts` (`springs`, `project`, `rubberband`).
+- **CSS:** gemelos `--spring-*` y `--t-*` en `src/index.css` (se regeneran con `node .claude/skills/apple-motion/scripts/gen-spring.mjs`).
+- **Momentos firma:** tarjeta de producto → panel de detalle (elemento compartido, hoja arrastrable en móvil), píldora que viaja en el navbar, navbar direccional (solo táctil/tablet), fondo del hero ligado al scroll, hover/press con "suelo" de sombra dura.
+- Respeta `prefers-reduced-motion`, `prefers-reduced-transparency` y `prefers-contrast`.
+- Las skills usadas viven en `.claude/skills/` (`apple-design`, `apple-motion`).
+
+### WhatsApp
+
+Copiá `.env.example` a `.env` y completá `VITE_WHATSAPP_NUMBER` (formato internacional, sin `+`). Sin número, los botones de consulta llevan a la sección de contacto.
+
+---
+
 ## 🚀 Quick Start
 
 ```bash

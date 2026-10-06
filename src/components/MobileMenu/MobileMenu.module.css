@@ -1,0 +1,60 @@
+/* === MENÚ MÓVIL — panel lateral arrastrable (< 903px) === */
+
+.scrim,
+.drawer {
+  display: none;
+}
+
+@media (max-width: 902px) {
+  /* Modal: oscurece (sin blur) y empuja el fondo hacia atrás */
+  .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 998;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .drawer {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    height: 100dvh;
+    padding: calc(var(--navbar-height) + 16px) 0 var(--space-md);
+    background: var(--color-black); /* opaco: un blur sobre algo ≥ .95 no se ve */
+    border-left: var(--border-width-lg) solid var(--color-primary);
+    box-shadow: -12px 0 0 rgba(0, 0, 0, 0.35);
+    touch-action: pan-y;
+    visibility: hidden;
+    transition: visibility 0s linear var(--t-settle);
+  }
+
+  .drawerOpen {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .drawerLink {
+    display: block;
+    padding: 20px var(--space-lg);
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.375rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border-bottom: var(--border-width-sm) solid var(--color-line-on-dark);
+    transition: background-color var(--t-press) ease;
+  }
+
+  .drawerLink:active {
+    background: var(--color-primary-hover);
+  }
+
+  .drawerLink[aria-current='location'] {
+    color: var(--color-primary-on-dark);
+  }
+}

@@ -1,0 +1,38 @@
+.header {
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-on-surface-muted);
+}
+
+/* Etiqueta tipo "dymo": rectángulo negro con número */
+.index {
+  display: inline-block;
+  padding: 3px 8px;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-variant-numeric: tabular-nums;
+}
+
+.title {
+  font-size: var(--text-h2);
+  font-weight: 800;
+  letter-spacing: var(--tracking-h2);
+  line-height: 1.04;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.accent {
+  display: block;
+  color: var(--color-primary);
+}

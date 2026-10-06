@@ -1,14 +1,18 @@
 import styles from './MaterialList.module.css'
-import { materiales } from "../../data/dataMaterials"
-import { MaterialCard } from "../MaterialCard/MaterialCard"
+import { materiales } from '../../data/dataMaterials'
+import { MaterialCard } from '../MaterialCard/MaterialCard'
 
-const MaterialList = () => {
+interface Props {
+  onOpen: (id: number, trigger: HTMLElement) => void
+}
+
+const MaterialList = ({ onOpen }: Props) => {
   return (
-    <div className={styles.grid}>
-        {materiales.map((material)=>(
-            <MaterialCard key={material.id} material={material}/>
-        ))}
-    </div>
+    <ul className={styles.grid}>
+      {materiales.map((material, index) => (
+        <MaterialCard key={material.id} material={material} index={index} onOpen={onOpen} />
+      ))}
+    </ul>
   )
 }
 

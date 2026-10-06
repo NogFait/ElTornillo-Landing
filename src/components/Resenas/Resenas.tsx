@@ -1,12 +1,14 @@
+import ResenasList from '../ResenasList/ResenasList'
+import { SectionHeader } from '../SectionHeader/SectionHeader'
 import styles from './Resenas.module.css'
-import ResenasList from "../ResenasList/ResenasList"
-
 
 const Resenas = () => {
   return (
-    <section className={styles.resenas}>
-        <h3 className={styles.title}>LO QUE DICEN NUESTROS <span className={styles.highlight}>CLIENTES</span></h3>
-        <ResenasList/>
+    <section id="resenas" className={styles.resenas} aria-labelledby="resenas-title">
+      <div className="container">
+        <SectionHeader index="03" eyebrow="Reseñas" title="Lo que dicen" accent="nuestros clientes" id="resenas-title" />
+        <ResenasList />
+      </div>
     </section>
   )
 }

@@ -1,156 +1,126 @@
-/* === ABOUT - Industrial Brutalist Style === */
+/* === ABOUT === */
 
 .about {
-  padding: var(--space-2xl) var(--space-lg);
-  max-width: var(--container-max, 1280px);
-  margin: 0 auto;
-  width: 100%;
+  padding-block: var(--section-pad);
+  background: var(--color-surface);
 }
 
-.twoColumnGrid {
+.grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
   align-items: start;
 }
 
 .infoColumn {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-}
-
-.title {
-  font-family: var(--font-family);
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--color-black);
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  margin: 0;
-  line-height: 1.1;
-}
-
-.highlight {
-  color: var(--color-primary);
-  display: block;
 }
 
 .description {
-  font-family: var(--font-family);
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--color-on-surface);
-  line-height: 24px;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  max-width: 54ch;
+  font-size: var(--text-body);
+  line-height: 1.65;
+  color: var(--color-on-surface-muted);
 }
 
-.statsGrid {
+.stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-md);
+  margin-top: var(--space-xl);
 }
 
 .statCard {
-  background-color: var(--color-surface-container-low);
-  border: var(--border-width-md) solid var(--color-black);
-  padding: var(--space-md);
-  box-shadow: var(--shadow-hard);
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  padding: var(--space-md);
+  background: var(--color-surface-container-low);
+  border: var(--border-width-md) solid var(--color-black);
+  box-shadow: 5px 5px 0 var(--color-black);
 }
 
-.iconBox {
-  font-family: var(--font-family);
-  font-size: 32px;
-  line-height: 1;
-  margin-bottom: var(--space-xs);
+.statHero {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: baseline;
+  gap: var(--space-md);
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.bigNumber {
+  /* El número cambia de texto en cada frame mientras cuenta: se aísla para que no invalide el layout de la página */
+  display: inline-block;
+  min-width: 2.2ch;
+  contain: layout paint;
+  font-size: clamp(3.5rem, 2rem + 6vw, 6rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: var(--tracking-display);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary-on-dark);
 }
 
 .statLabel {
-  display: block;
-  font-family: var(--font-family);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
-  color: var(--color-primary);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--space-xs);
-  padding-bottom: var(--space-xs);
-  border-bottom: var(--border-width-sm) solid var(--color-surface-dim);
 }
 
-.statValue {
-  font-family: var(--font-family);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--color-on-surface);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0;
-  line-height: 16px;
+.icon {
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.statTitle {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  letter-spacing: var(--tracking-h3);
+}
+
+.statText {
+  font-size: var(--text-small);
+  color: var(--color-on-surface-muted);
 }
 
 .imageColumn {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
+  position: relative;
 }
 
-.imagePlaceholder {
-  background-color: var(--color-surface-dim);
-  border: var(--border-width-md) solid var(--color-black);
-  min-height: 400px;
+/* Alto fijo por proporción; la imagen nunca dimensiona su caja */
+.imageFrame {
+  position: relative;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--color-surface-dim);
+  border: var(--border-width-md) solid var(--color-black);
+  box-shadow: 10px 10px 0 var(--color-black);
 }
 
 .image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: none;
-  display: block;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 1024px) {
-  .twoColumnGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .imageFrame {
+    aspect-ratio: 4 / 3;
+    box-shadow: 6px 6px 0 var(--color-black);
   }
 }
 
-@media (max-width: 768px) {
-  .about {
-    padding: var(--space-lg) var(--space-sm);
-  }
-  
-  .twoColumnGrid {
+@media (max-width: 480px) {
+  .stats {
     grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-  
-  .title {
-    font-size: 24px;
-  }
-  
-  .statsGrid {
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-  }
-  
-  .description {
-    font-size: 14px;
-    line-height: 20px;
-  }
-  
-  .imagePlaceholder {
-    min-height: 250px;
   }
 }
